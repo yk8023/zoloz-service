@@ -6,3 +6,24 @@ logging:
 
 server:
   port: 8080
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://database-1.cz6iq2080iav.ap-southeast-1.rds.amazonaws.com:3306/ekyc?useUnicode=true&characterEncoding=UTF-8
+    username: admin
+    password: NMqMQEqHKisNKcJLAdao
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.ekyc.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
